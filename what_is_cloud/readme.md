@@ -44,6 +44,8 @@ Public cloud is cloud computing that’s delivered via the internet and shared a
 * Accessing services over the cloud to deliver applications, which are managed by a third-party vendor, to its users. 
 * A majority of SaaS applications run directly through your web browser
 
+<img alt="image.png" height="609" src="image.png" width="950"/>
+
 <img alt="What-Is-a-Cloud-Deployment-Model_.png" height="300" src="What-Is-a-Cloud-Deployment-Model_.png" width="400"/>
 
 ### What are the advantages/disadvantages of the cloud?
@@ -70,6 +72,7 @@ Cloud computing typically aligns with OpEx due to its subscription-based model.
 <br>
 <br>
 CapEx *(Capital Expenditure)* represents investments in long-term assets like property, equipment, or infrastructure, with benefits spread over multiple years.
+This would count as company's owning their own data centers, within an organization's physical premises.
 
 <img alt="CapEx-OpEx-characteristics-challenges-blog-1024x999.png" height="560" src="CapEx-OpEx-characteristics-challenges-blog-1024x999.png" width="555"/>
 
