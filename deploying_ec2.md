@@ -58,7 +58,11 @@ Your shell should now have a similar line on the console as the image below., as
 
 ![img_6.png](img_6.png)
 
-### How to deploy nginx on it
+### How to deploy NGINX
+
+NGINX is a web server and reverse proxy server that works by handling incoming network requests and serving web content.
+We will use it to signal if our ec2 is functioning, and we can access the webpage on our browser.
+
 #### Step 9:
 Enter the commands:
 ```
@@ -70,8 +74,9 @@ Then enter the next command.
 ```
 sudo apt install nginx -y
 ```
+The `-y` in the commands above mean that if the console asks if we want to install something, then the console automatically inputs yes.
 
 #### Step 10: Go back to the instance summary on AWS, and copy your public IP to the clipboard.
-Pasting the IP address into the web browser brings you to the nginx webpage. Congratulations!
+Pasting the IP address into the web browser brings you to the nginx webpage. Congratulations, you have successfully established a connection to your ec2!
 
 ![img_9.png](img_9.png)
