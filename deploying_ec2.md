@@ -11,6 +11,10 @@ Ensure that you are correctly logged in, and are in the right server (Ireland, e
 Give it an appropriate name, such as `tech258_joew_newtest_ec2`.
 In Application and OS Images, change it to Ubuntu. Make sure the Amazon Machine Image is on the free tier.
 
+Machine images refer to a snapshot or template of a computer system's state, 
+including its operating system, installed software, configurations, and data. 
+They are used in rapid deployment, and they ensure consistency and repeatability.
+
 ![img.png](img.png)
 
 #### Step 3: On Instance Type, select t2.Micro
@@ -26,6 +30,9 @@ It allows us to access the VM once created, and only people with the key will be
 #### Step 5: On Network Settings, use the existing security group called `tech258_joew_basic_sg`
 This is a profile we created earlier.
 It has settings to allow HTTP traffic, and allow SSH traffic.
+Security groups are a set of firewall rules that control inbound and outbound network traffic for one or more instances (virtual machines).
+They control traffic to IP addresses and ports. Each IP address is bound to a machine, and each machine has many, many ports.
+An analogy would be an IP address represents a house, and the port represents a room in the house.
 
 ![img_2.png](img_2.png)
 
