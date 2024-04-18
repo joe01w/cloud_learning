@@ -77,7 +77,23 @@ This would count as company's owning their own data centers, within an organizat
 <img alt="CapEx-OpEx-characteristics-challenges-blog-1024x999.png" height="560" src="CapEx-OpEx-characteristics-challenges-blog-1024x999.png" width="555"/>
 
 ### Is migrating to the cloud always cheaper?
+
+No, the balance of initial investment vs. ongoing costs should be considered. Moving to the cloud often entails transitioning from capital expenditures (CapEx) to operational expenditures (OpEx). 
+While this shift can reduce upfront expenses, businesses should assess whether the long-term operational costs of cloud services align with their budget and financial objectives.
+Also, businesses should consider the potential for vendor lock-in and how it might affect long-term costs. 
+Additionally, cloud providers may periodically adjust pricing or introduce new pricing models, impacting cost predictability for businesses.
+
 ### Marketshare - What is the breakdown? Add a diagram to help understand marketshare trends
+
+
+
 ### What are the 3 largest Cloud providers known for (What makes them popular? What are some of their USPs?)
+
+
+
 #### Which cloud provider do you think might be the best? Why?
+
+
+
 ### What sorts of things do you usually need to pay for when using the cloud?
+
