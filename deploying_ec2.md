@@ -67,8 +67,11 @@ We will use it to signal if our ec2 is functioning, and we can access the webpag
 Enter the commands:
 ```
 sudo apt update -y
+```
+```
 sudo apt upgrade -y
 ```
+
 These update *(do we have the latest packages on record?)* and upgrade *(put the latest versions in to effect)* the linux shell.
 Then enter the next command.
 ```
