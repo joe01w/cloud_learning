@@ -20,7 +20,7 @@ You can access all your files, run programs, and do everything you'd normally do
 * On-premises solutions may require significant upfront investment in hardware to accommodate potential growth.
 * With on-premises solutions, organizations own and are responsible for managing all aspects of the infrastructure, including hardware, software, security, and maintenance.
 
-![OpEx-CapEx-Cloud_Iceberg-1.png](OpEx-CapEx-Cloud_Iceberg-1.png)
+![OpEx-CapEx-Cloud_Iceberg-1.png](images/OpEx-CapEx-Cloud_Iceberg-1.png)
 
 ### The 4 deployment models of cloud: private vs public vs hybrid vs multi-cloud
 Public cloud is cloud computing that’s delivered via the internet and shared across organizations.
@@ -28,7 +28,7 @@ Public cloud is cloud computing that’s delivered via the internet and shared a
 <br>Hybrid cloud is any environment that uses both public and private clouds.
 <br>Multi-cloud strategies incorporate combinations of private and public clouds, often from different CSPs, for flexibility in meeting operational requirements.
 
-![cloud-deployment-model-types.png](cloud-deployment-model-types.png)
+![cloud-deployment-model-types.png](images/cloud-deployment-model-types.png)
 
 ### Types of cloud services: IaaS, PaaS, SaaS
 **IaaS (Infrastructure as a Service):**
@@ -44,9 +44,10 @@ Public cloud is cloud computing that’s delivered via the internet and shared a
 * Accessing services over the cloud to deliver applications, which are managed by a third-party vendor, to its users. 
 * A majority of SaaS applications run directly through your web browser
 
-<img alt="image.png" height="609" src="image.png" width="950"/>
+<img alt="image.png" height="609" src="images/image.png" width="950"/>
+<br>
 
-<img alt="What-Is-a-Cloud-Deployment-Model_.png" height="300" src="What-Is-a-Cloud-Deployment-Model_.png" width="400"/>
+<img alt="cloud_deployment.png" height="600" src="images/cloud_deployment.png" width="800"/>
 
 ### What are the advantages/disadvantages of the cloud?
 **Advantages:**
@@ -74,7 +75,7 @@ Cloud computing typically aligns with OpEx due to its subscription-based model.
 CapEx *(Capital Expenditure)* represents investments in long-term assets like property, equipment, or infrastructure, with benefits spread over multiple years.
 This would count as company's owning their own data centers, within an organization's physical premises.
 
-<img alt="CapEx-OpEx-characteristics-challenges-blog-1024x999.png" height="560" src="CapEx-OpEx-characteristics-challenges-blog-1024x999.png" width="555"/>
+![CapEx_VS_OpEx.png](images/CapEx_VS_OpEx.png)
 
 ### Is migrating to the cloud always cheaper?
 
@@ -83,13 +84,22 @@ While this shift can reduce upfront expenses, businesses should assess whether t
 Also, businesses should consider the potential for vendor lock-in and how it might affect long-term costs. 
 Additionally, cloud providers may periodically adjust pricing or introduce new pricing models, impacting cost predictability for businesses.
 
-### Marketshare - What is the breakdown? Add a diagram to help understand marketshare trends
+### Marketshare - What is the breakdown?
 
+These three players dominate the cloud market: 
+* **Amazon Web Services (AWS):** A leading provider of cloud computing platforms and APIs, offering on-demand services on a pay-as-you-go basis.
+* **Microsoft Azure:** Microsoft's cloud computing service, providing solutions for building, testing, deploying, and managing applications and services.
+* **Google Cloud Platform (GCP):** Google's suite of cloud computing services, leveraging the same infrastructure as Google's consumer products. 
+There are other providers like IBM Cloud and Oracle Cloud.
 
+<img alt="cloud_marketshare.png" height="646" src="images/cloud_marketshare.png" width="694"/>
 
 ### What are the 3 largest Cloud providers known for (What makes them popular? What are some of their USPs?)
 
-
+AWS is known for its ability to easily adjust to changing needs and having good scalability. It also is the largest cloud provider, and has the most data centres across the world.
+It fosters a strong community of partners and developers. Microsoft Azure integrates seamlessly with Microsoft products, making it popular for businesses already using Microsoft technologies. 
+It offers reliable hybrid cloud solutions and advanced AI capabilities. GCP is renowned for its powerful data analytics and AI tools like BigQuery and TensorFlow. 
+It ensures fast access to services worldwide and leads in innovation, with a focus on sustainability.
 
 #### Which cloud provider do you think might be the best? Why?
 
