@@ -112,11 +112,12 @@ tree
 ```
 great command to see a tree diagram of files and directories
 
-![img.png](img.png)
+![img.png](images/img.png)
 
 ## Automating
-
+```
 ./provision.sh
+```
 This command runs a file
 
 These are the commands we have placed in this file to automate these tasks.
@@ -156,9 +157,9 @@ short form, as numbers (777)
 <br>
 https://chmod-calculator.com/
 
-![img2.png](img2.png)
+![img2.png](images/img2.png)
 
-### NGINX
+## NGINX
 
 ```
 systemctl status nginx
@@ -188,3 +189,169 @@ shows the environment variables
 nano .bashrc
 ```
 enters a hidden file, this is a way to alter environment variables
+
+## Processes
+
+There are 2 types of processes in linux:
+* User
+* System
+
+```
+ps
+```
+shows us user processes
+
+```
+ps -e
+```
+shows us all processes
+
+```
+ps aux
+```
+shows all processes
+
+```
+top
+```
+shows us the top processes
+
+>  shift + m       sort by memory usage
+>  shift + n       newest processes
+>  shift + p       processor usage
+
+
+### Parent processes and child processes
+
+* Every process has a process id
+* A parent process controls child processes
+* Parent processes create child processes
+* There are diff levels of killing a process
+* If the killing is too forceful, the child processes are left in memory, and turn into zombie processes, they just take up memory
+* If a parent process is responsible for child processes, if you kill the child process, the parent will try to create the process again
+* If you shut down a parent process not too forcibly, then it will try to shut down child processes, then shut down the parent process
+
+```
+sleep *num of seconds*
+```
+sleeps the console for that amount of seconds
+
+```
+sleep *num of seconds* &
+```
+sleeps for that amount of seconds in the background
+
+```
+jobs
+```
+shows user created processes
+
+```
+jobs -l 
+```
+shows user created processes and process ID	
+
+### Kill Signals
+
+```
+kill (process ID)
+```
+Gentle terminate
+
+```
+kill -9 (process ID)
+```
+bruteforce kill (absolute last resort)
+
+# App Deployment
+
+### Updating and Upgrading Packages:
+#### Run:
+```
+echo "Updating..."
+sudo DEBIAN_FRONTEND=noninteractive apt update -y
+echo "Updated!"
+echo "Upgrading packages..."
+sudo DEBIAN_FRONTEND=noninteractive apt upgrade -y
+echo "Packages upgraded!"
+```
+
+### Installing and Configuring Nginx:
+
+#### Install Nginx:
+```
+echo "Installing Nginx..."
+sudo apt install nginx -y
+echo "Nginx installed!"
+```
+
+#### Restart and Enable Nginx:
+
+```
+echo "Restarting Nginx..."
+sudo systemctl restart nginx
+echo "Nginx restarted!"
+echo "Enabling Nginx..."
+sudo systemctl enable nginx
+echo "Nginx enabled!"
+```
+
+### Installing Node.js 20:
+
+#### Install Node.js 20:
+
+```
+echo "Installing Node.js 20..."
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - && \
+sudo apt-get install -y nodejs
+echo "Node.js 20 installed!"
+```
+
+#### Check Node.js Version:
+
+```
+echo "Checking Node.js version..."
+node -v
+echo "Node.js version checked!"
+```
+
+### Deploying the App:
+
+#### Copy the app folder to the EC2 instance:
+
+```
+echo "Copying app folder to EC2 instance..."
+scp -i "path/to/your/private_key.pem" -r "path/to/your/local/app-folder" ubuntu@your_ec2_instance_ip:~/
+echo "App folder copied!"
+```
+
+After running these commands, your bash windows should look similar to the image below.
+
+![img3.png](images/img3.png)
+
+### Running the App:
+
+#### Connect to the EC2 instance via SSH:
+
+```
+ssh -i "path/to/your/private_key.pem" ubuntu@your_ec2_instance_ip
+```
+
+#### Navigate to the app folder on the ec2 bash window:
+
+```
+cd ~/sparta-test-app
+```
+
+#### Install app dependencies and start the app:
+
+```
+echo "Installing app dependencies..."
+npm install
+echo "Dependencies installed!"
+echo "Starting the app..."
+npm start
+```
+
+After this, a message should appear stating that your app is ready to use, and which port to access it on. 
+In this case, that's port 3000.
