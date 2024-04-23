@@ -97,13 +97,28 @@ There are other providers like IBM Cloud and Oracle Cloud.
 ### What are the 3 largest Cloud providers known for (What makes them popular? What are some of their USPs?)
 
 AWS is known for its ability to easily adjust to changing needs and having good scalability. It also is the largest cloud provider, and has the most data centres across the world.
-It fosters a strong community of partners and developers. Microsoft Azure integrates seamlessly with Microsoft products, making it popular for businesses already using Microsoft technologies. 
-It offers reliable hybrid cloud solutions and advanced AI capabilities. GCP is renowned for its powerful data analytics and AI tools like BigQuery and TensorFlow. 
+It fosters a strong community of partners and developers. 
+
+Microsoft Azure integrates seamlessly with Microsoft products, making it popular for businesses already using Microsoft technologies. 
+It offers reliable hybrid cloud solutions and advanced AI capabilities. 
+
+GCP is renowned for its powerful data analytics and AI tools like BigQuery and TensorFlow. 
 It ensures fast access to services worldwide and leads in innovation, with a focus on sustainability.
 
 #### Which cloud provider do you think might be the best? Why?
 
+I think it depends on what your needs are for the project. If it's scalability and a global venture, then I would suggest AWS.
+<br> If its integration you are after, and ease of use, then I would suggest Azure.
+<br> If you are looking for A.I. integration, then I would suggest GCP.
+<br> Other factors such as budget and specific workload need also play a part in selecting a cloud provider.
 
 
 ### What sorts of things do you usually need to pay for when using the cloud?
+
+* Compute resources like virtual machines or containers 
+* Storage space for data storage and retrieval
+* Network usage for data transfer in and out of the cloud
+* Databases 
+* AI and machine learning tools
+* Monitoring and support
 
