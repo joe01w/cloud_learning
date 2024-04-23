@@ -499,4 +499,5 @@ This will connect your application to the MongoDB database and allow you to acce
 Your broswer should now look like this.
 <br>
 <br>
+
 ![alt text](images/forms_pic.png)
