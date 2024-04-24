@@ -1,3 +1,5 @@
+# App Deployment
+
 - [App Deployment](#app-deployment)
     - [Updating and Upgrading Packages:](#updating-and-upgrading-packages)
       - [Run:](#run)
@@ -15,6 +17,7 @@
       - [Install app dependencies and start the app:](#install-app-dependencies-and-start-the-app)
     - [Complete Automation Script for the App](#complete-automation-script-for-the-app)
 - [2-Tier App Deployment](#2-tier-app-deployment)
+  - [Why is 2-Tier App Deployment preferred to a monolith](#why-is-2-tier-app-deployment-preferred-to-a-monolith)
   - [Setting Up MongoDB 7.0.6 on Ubuntu 22.04](#setting-up-mongodb-706-on-ubuntu-2204)
       - [Step 0: Create an EC2 Instance and Configure Security Group](#step-0-create-an-ec2-instance-and-configure-security-group)
       - [Step 1: Log in to the Instance](#step-1-log-in-to-the-instance)
@@ -29,7 +32,6 @@
     - [Raw script for app deployment with MongoDB](#raw-script-for-app-deployment-with-mongodb)
 
 
-# App Deployment
 
 ### Updating and Upgrading Packages:
 #### Run:
@@ -191,6 +193,26 @@ echo DONE!
 
 # 2-Tier App Deployment
 
+## Why is 2-Tier App Deployment preferred to a monolith
+
+**Monolithic Architecture:**
+
+* All components run on one server.
+* Simple to develop and deploy initially.
+* Hard to scale and maintain as the application grows.
+* Prone to security risks and resilience issues.
+
+**Two-Tier Architecture:**
+
+* Separates the application into client-side and server-side.
+* Allows for scalability and modularity.
+* More flexible and resilient.
+* Communication complexity between client and server.
+
+In summary, while monolithic architectures are simple initially but challenging to scale and maintain, two-tier architectures offer scalability and modularity at the cost of increased communication complexity.
+
+![alt text](images/monolith_vs_2tier_deployment.png)
+
 ## Setting Up MongoDB 7.0.6 on Ubuntu 22.04
 
 #### Step 0: Create an EC2 Instance and Configure Security Group
@@ -236,8 +258,19 @@ sudo apt-get update
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -y mongodb-org=7.0.6 mongodb-org-database=7.0.6 mongodb-org-server=7.0.6 mongodb-mongosh=2.2.4 mongodb-org-mongos=7.0.6 mongodb-org-tools=7.0.6
 ```
 
-#### Step 4: Configure Bind IP in MongoDB Configuration
+The following commands ensure that the version of MongoDB you have installed remains that version, and isn't automatically updated to the latest version. This ensures compatability.
+```
+echo "mongodb-org hold" | sudo dpkg --set-selections
+echo "mongodb-org-database hold" | sudo dpkg --set-selections
+echo "mongodb-org-server hold" | sudo dpkg --set-selections
+echo "mongodb-mongosh hold" | sudo dpkg --set-selections
+echo "mongodb-org-mongos hold" | sudo dpkg --set-selections
+echo "mongodb-org-tools hold" | sudo dpkg --set-selections
+```
 
+#### Step 4: Configure Bind IP in MongoDB Configuration
+This is an command to automate this, and manually you would have cd into the app folder, nano into the text editor, and change the bind IP.
+This is so other machines can communicate with the database.
 ```
 sudo sed -i 's/^\(\s*\)bindIp: .*/\1bindIp: 0.0.0.0/' /etc/mongod.conf
 ```
@@ -266,9 +299,10 @@ That's it! MongoDB 7.0.6 should now be installed, configured, and running on you
 
 1. Ensure that MongoDB is running in a separate terminal.
 2. SSH into your EC2 instance.
-3. Run the following commands:
+3. Run the usual commands to access the app, but also incorperate the commands below.
+4. Run the following commands:
 
-This command changes your DB_HOST environment variable to the private IP address of MongoDB EC2 instance.
+This command **creates** a DB_HOST environment variable, and we need to add the private IP address of **your** Mongo database EC2 instance.
 ```
 export DB_HOST=mongodb://(YourPrivateIPAddress):27017/posts
 ```
@@ -288,6 +322,18 @@ Your broswer should now look like this.
 <br>
 
 ![alt text](images/forms_pic.png)
+
+We can also alter the script, so the website address doesn't require the port (3000).
+We do this through changing the config file and setting up a reverse proxy.
+```
+echo changing config file and setting up reverse proxy ...
+sudo sed -i '51s/.*/\t        proxy_pass http:\/\/localhost:3000;/' /etc/nginx/sites-available/default
+echo NGINX CONFIGURED FOR REVERSE PROXY!
+```
+
+When both scripts are run on each terminal, they should look like the images below, and you should be able to access the app through the public app IP address.
+
+![alt text](images/working_2_tier_deployment_terminals.png)
 
 ### Raw Script for MongoDB deployment
 ```
@@ -332,10 +378,6 @@ echo starting mongo db...
 sudo systemctl start mongod
 echo MONGO DB STARTED!
 
-echo checking mongo db status
-sudo systemctl status mongod
-echo MONGO DB STATUS CHECKED!
-
 # configure bind IP in mongo db config file , change it to 0.0.0.0
 
 echo changing the bind IP to 0.0.0.0
@@ -356,6 +398,8 @@ echo MONGO DB STATUS CHECKED!
 
 ### Raw script for app deployment with MongoDB
 ```
+# MAKE SURE YOU CHANGE THE IP ADDRESS BELOW
+
 #!/bin/bash
 
 echo updating...
@@ -369,21 +413,18 @@ echo PACKAGES UPGRADED!
 echo installing nginx...
 sudo DEBIAN_FRONTEND=noninteractive apt install nginx -y
 echo NGINX INSTALLED!
- 
-# configure reverse proxy
-# changing configuration file
+
+echo changing config file and setting up reverse proxy ...
+sudo sed -i '51s/.*/\t        proxy_pass http:\/\/localhost:3000;/' /etc/nginx/sites-available/default
+echo NGINX CONFIGURED FOR REVERSE PROXY!
 
 echo restarting nginx...
 sudo systemctl restart nginx
 echo NGINX RESTARTED!
- 
+
 echo enabling nginx...
 sudo systemctl enable nginx
 echo NGINX ENABLED!
-
-echo installing git...
-sudo apt install git -y
-echo DONE!
 
 echo getting repo...
 git clone https://github.com/joe01w/sparta-test-app
@@ -402,12 +443,12 @@ echo check node js version...
 node -v
 echo NODE JS VERSION CHECKED!
 
-# RUN AS A SCRIPT UP TO HERE
 
 # set DB_HOST env var
 # MAKE SURE YOU CHANGE THE IP ADDRESS TO THE PRIVATE IP ADDRESS OF THE DATABASE EC2
-export DB_HOST=mongodb://172.31.48.32/posts
+export DB_HOST=mongodb://172.31.48.180/posts
 printenv DB_HOST
+
 
 echo installing app...
 npm install
