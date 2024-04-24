@@ -315,9 +315,14 @@ npm install
 ```
 npm start
 ```
+
+When both scripts are run on each terminal, they should look like the images below, and you should be able to access the app through the public app IP address.
+
+![alt text](images/working_2_tier_deployment_terminals.png)
+
 4. Visit your website at (YourIPAddress):3000/forms.
 This will connect your application to the MongoDB database and allow you to access it through your website.
-Your broswer should now look like this.
+Your browser should now look like this.
 <br>
 <br>
 
@@ -330,10 +335,6 @@ echo changing config file and setting up reverse proxy ...
 sudo sed -i '51s/.*/\t        proxy_pass http:\/\/localhost:3000;/' /etc/nginx/sites-available/default
 echo NGINX CONFIGURED FOR REVERSE PROXY!
 ```
-
-When both scripts are run on each terminal, they should look like the images below, and you should be able to access the app through the public app IP address.
-
-![alt text](images/working_2_tier_deployment_terminals.png)
 
 ### Raw Script for MongoDB deployment
 ```
