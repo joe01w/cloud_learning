@@ -269,7 +269,7 @@ echo "mongodb-org-tools hold" | sudo dpkg --set-selections
 ```
 
 #### Step 4: Configure Bind IP in MongoDB Configuration
-This is an command to automate this, and manually you would have cd into the app folder, nano into the text editor, and change the bind IP.
+This is a command to automate this, but manually you would have cd into the app folder, nano into the text editor, and change the bind IP.
 This is so other machines can communicate with the database.
 ```
 sudo sed -i 's/^\(\s*\)bindIp: .*/\1bindIp: 0.0.0.0/' /etc/mongod.conf
