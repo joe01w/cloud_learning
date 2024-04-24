@@ -15,7 +15,7 @@
       - [Connect to the EC2 instance via SSH:](#connect-to-the-ec2-instance-via-ssh)
       - [Navigate to the app folder on the ec2 bash window:](#navigate-to-the-app-folder-on-the-ec2-bash-window)
       - [Install app dependencies and start the app:](#install-app-dependencies-and-start-the-app)
-    - [Complete Automation Script for the App](#complete-automation-script-for-the-app)
+    - [Raw Script for the App (without database)](#raw-script-for-the-app-without-database)
 - [2-Tier App Deployment](#2-tier-app-deployment)
   - [Why is 2-Tier Architecture preferred to a Monolith](#why-is-2-tier-architecture-preferred-to-a-monolith)
   - [Setting Up MongoDB 7.0.6 on Ubuntu 22.04](#setting-up-mongodb-706-on-ubuntu-2204)
@@ -122,11 +122,11 @@ npm start
 ```
 
 After this, a message should appear stating that your app is ready to use, and which port to access it on. 
-In this case, that's port 3000. The image below should be on your browser, this means you app works. Congratulations!
+In this case, that's port 3000. The image below should be on your browser, this means your app works. Congratulations!
 
 ![alt text](<images/Screenshot 2024-04-23 153322.png>)
 
-### Complete Automation Script for the App
+### Raw Script for the App (without database)
 ```
 #!/bin/bash
 
