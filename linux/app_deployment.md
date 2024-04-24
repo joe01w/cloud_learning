@@ -17,7 +17,7 @@
       - [Install app dependencies and start the app:](#install-app-dependencies-and-start-the-app)
     - [Complete Automation Script for the App](#complete-automation-script-for-the-app)
 - [2-Tier App Deployment](#2-tier-app-deployment)
-  - [Why is 2-Tier App Deployment preferred to a monolith](#why-is-2-tier-app-deployment-preferred-to-a-monolith)
+  - [Why is 2-Tier Architecture preferred to a Monolith](#why-is-2-tier-architecture-preferred-to-a-monolith)
   - [Setting Up MongoDB 7.0.6 on Ubuntu 22.04](#setting-up-mongodb-706-on-ubuntu-2204)
       - [Step 0: Create an EC2 Instance and Configure Security Group](#step-0-create-an-ec2-instance-and-configure-security-group)
       - [Step 1: Log in to the Instance](#step-1-log-in-to-the-instance)
@@ -193,7 +193,7 @@ echo DONE!
 
 # 2-Tier App Deployment
 
-## Why is 2-Tier App Deployment preferred to a monolith
+## Why is 2-Tier Architecture preferred to a Monolith
 
 **Monolithic Architecture:**
 
