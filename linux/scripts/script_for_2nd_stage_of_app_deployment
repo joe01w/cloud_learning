@@ -1,0 +1,75 @@
+
+# MAKE SURE YOU CHANGE THE IP ADDRESS BELOW
+
+#!/bin/bash
+
+echo updating...
+sudo DEBIAN_FRONTEND=noninteractive apt update -y
+echo UPDATED!
+
+echo upgrade packages...
+sudo DEBIAN_FRONTEND=noninteractive apt upgrade -y
+echo PACKAGES UPGRADED!
+ 
+echo installing nginx...
+sudo DEBIAN_FRONTEND=noninteractive apt install nginx -y
+echo NGINX INSTALLED!
+
+echo changing config file and setting up reverse proxy ...
+sudo sed -i '51s/.*/\t        proxy_pass http:\/\/localhost:3000;/' /etc/nginx/sites-available/default
+echo NGINX CONFIGURED FOR REVERSE PROXY!
+
+echo restarting nginx...
+sudo systemctl restart nginx
+echo NGINX RESTARTED!
+
+echo enabling nginx...
+sudo systemctl enable nginx
+echo NGINX ENABLED!
+
+echo getting repo...
+git clone https://github.com/joe01w/sparta-test-app
+echo CLONED REPO!
+
+echo going to app folder...
+cd ~/sparta-test-app/app
+echo IN APP FOLDER!
+
+echo install node js v20...
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo DEBIAN_FRONTEND=noninteractive -E bash - &&\
+sudo DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs
+echo NODE JS INSTALLED!
+
+echo check node js version...
+node -v
+echo NODE JS VERSION CHECKED!
+
+
+# set DB_HOST env var
+# MAKE SURE YOU CHANGE THE IP ADDRESS TO THE PRIVATE IP ADDRESS OF THE DATABASE EC2
+export DB_HOST=mongodb://172.31.48.180/posts
+printenv DB_HOST
+
+
+echo installing app...
+npm install
+echo APP INSTALLED!
+
+echo installing pm2...
+sudo npm install -g pm2
+echo FINISHED INSTALLING PM2!
+
+echo stopping processes...
+sudo pm2 stop all
+echo PROCESSES STOPPED!
+
+echo running app...
+pm2 start app.js
+echo DONE!
+
+# The app should be accessible now, using the Public IP of the newest EC2 Instance. 
+
+
+
+
+# scp -i "C:\Users\JW PC\.ssh\tech258.pem" -r "C:\Users\JW PC\app-code\sparta-test-app" ubuntu@3.254.57.78:~/

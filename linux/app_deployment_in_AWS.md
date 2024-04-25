@@ -320,7 +320,7 @@ When both scripts are run on each terminal, they should look like the images bel
 
 ![alt text](images/working_2_tier_deployment_terminals.png)
 
-4. Visit your website at (YourIPAddress):3000/forms.
+4. Visit your website at (YourIPAddress):3000/posts.
 This will connect your application to the MongoDB database and allow you to access it through your website.
 Your browser should now look like this.
 <br>
@@ -418,6 +418,7 @@ echo NGINX INSTALLED!
 echo changing config file and setting up reverse proxy ...
 sudo sed -i '51s/.*/\t        proxy_pass http:\/\/localhost:3000;/' /etc/nginx/sites-available/default
 echo NGINX CONFIGURED FOR REVERSE PROXY!
+# Other way to do this is manually.
 
 echo restarting nginx...
 sudo systemctl restart nginx
@@ -427,7 +428,7 @@ echo enabling nginx...
 sudo systemctl enable nginx
 echo NGINX ENABLED!
 
-echo getting repo...
+echo getting and cloning repo...
 git clone https://github.com/joe01w/sparta-test-app
 echo CLONED REPO!
 
@@ -444,12 +445,15 @@ echo check node js version...
 node -v
 echo NODE JS VERSION CHECKED!
 
+# =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 # set DB_HOST env var
 # MAKE SURE YOU CHANGE THE IP ADDRESS TO THE PRIVATE IP ADDRESS OF THE DATABASE EC2
 export DB_HOST=mongodb://172.31.48.180/posts
 printenv DB_HOST
+echo DB_HOST CREATED AND IP ADDRESS ACQUIRED!
 
+# =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 echo installing app...
 npm install
@@ -465,5 +469,7 @@ echo PROCESSES STOPPED!
 
 echo running app...
 pm2 start app.js
-echo DONE!
+echo FINISHED!
+
+# The app should be accessible now, using the Public IP of the newest EC2 Instance. 
 ```
