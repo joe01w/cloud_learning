@@ -1,4 +1,4 @@
-# What is 2 Tier Arcitecture Deployment?
+# What is 2 Tier Architecture Deployment?
 
 Two-tier architecture deployment divides an application into two layers: the frontend tier, which interacts with users and presents the user interface through web servers or client-side applications, and the backend tier, responsible for business logic, data processing, and storage using databases, application servers, or APIs. This setup simplifies management but may have scalability limitations compared to more complex architectures.
 
@@ -58,13 +58,11 @@ When creating the VM, allow SSH connection, and once fully created, enter the ne
 
 ![alt text](images/connect_location.png)
 
-Use the SSH command below to access the VMs. Then run each script for each VM. Or follow the steps below.
-
+Use the SSH command below to access the VMs. 
 ```
 ssh -i ~/.ssh/tech258_joew_az_key adminuser@172.187.91.87
 ```
-
-Use the scripts previously created for AWS Deployment. Or just follow the steps below.
+Use the scripts previously created for AWS Deployment for each VM. Or just follow the steps below.
    
 1. Configure the backend VM (in private subnet):
    - Install and configure the database software (e.g., MongoDB).
