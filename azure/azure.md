@@ -41,10 +41,7 @@ Azure offers a robust resource management system that helps organize and control
 
 ## Resource Groups
 
-Resource groups serve as logical containers for grouping Azure resources such as virtual machines, databases, and web apps. They provide a unified management interface and facilitate streamlined operations. Notably, resource groups cannot be nested within each other, akin to containers within containers.
-
-### Example:
-- **Tech258**: A resource group where multiple resources are aggregated for a specific project or purpose.
+Resource groups serve as logical containers for grouping Azure resources such as virtual machines, databases, and web apps. They provide a unified management interface and facilitate streamlined operations. Notably, resource groups cannot be nested within each other, similarly to containers within containers.
 
 ## Subscriptions
 
@@ -59,10 +56,7 @@ Each subscription has its own limits and quotas to manage resource consumption e
 
 ## Management Groups
 
-Management groups provide a hierarchical structure for organizing subscriptions and applying policies across multiple Azure subscriptions. They function akin to folders and can be nested up to six layers deep. Management groups enable centralized governance and access control.
-
-### Example:
-- **Root Management Group**: The default management group at the highest level, associated with an Azure AD tenant or Entra. It serves as the top-level organizational unit where users, groups, and policies are managed.
+Management groups provide a hierarchical structure for organizing subscriptions and applying policies across multiple Azure subscriptions. They can be compared to folders and can be nested up to six layers deep. Management groups enable centralized governance and access control.
 
 ## Scopes and Access Control
 
