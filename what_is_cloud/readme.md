@@ -4,7 +4,7 @@
 
 ### What is cloud computing? (in layman's terms)
 
-Cloud computing is the delivery of computing services over the cloud. It is the idea of renting a computer instead of buying one. 
+Cloud computing, often referred to simply as "the cloud", is the delivery of computing services over the cloud. It is the idea of renting a computer instead of buying one. 
 Instead of having a physical computer at home or work, you use a computer that's in the cloud, which means it's somewhere else on the internet. 
 You can access all your files, run programs, and do everything you'd normally do on a computer, but it's all happening on a remote server instead of on a computer sitting in front of you.
 
