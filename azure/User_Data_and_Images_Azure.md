@@ -9,6 +9,8 @@
 ## What is User Data?
 User data refers to the ability to run a script on a VM as soon as its been created. It is found as a empty text box in the advanced tab when creating a VM. This rapidly increases the deployment time of an app, as we no longer have to SSH into the VM through our bash terminal and run the script through a nano command. This also reduces the amount of human input needed to essentially none.
 
+![alt text](images/user_data_img.png)
+
 ## How does using User Data speed up deployment time but not the speed the app/database runs?
 This is because the app/database still has to run the same amount of commands to deploy. The time save to deploy comes from the removal of the human input when SSHing in and running the script manually.
 
@@ -27,17 +29,17 @@ This is because the image we use comes preinstalled and preconfigured with softw
 
 ## What is and isn't included in an Image
 
-**Included:**
+### Included:
 
-* Operating System: The image typically features a specific OS version, like Windows or Linux, alongside relevant updates and patches.
-* Software Configurations: It includes installed software, packages, and configurations present on the original VM.
-* Customizations: Any tailored settings, scripts, or applications installed or configured on the VM.
+* **Operating System:** The image typically features a specific OS version, like Windows or Linux, alongside relevant updates and patches.
+* **Software Configurations:** It includes installed software, packages, and configurations present on the original VM.
+* **Customizations:** Any tailored settings, scripts, or applications installed or configured on the VM.
 
-**Excluded:**
+### Excluded:
 
-* User Data: Image creation excludes user-specific data or settings, such as user accounts, files, and individual runtime data.
-* Temporary Data: It omits temporary files or caches that aren't part of the core system configuration.
-* Sensitive Information: Confidential data like passwords, encryption keys, or API tokens should be kept out of the image.
+* **User Data:** Image creation excludes user-specific data or settings, such as user accounts, files, and individual runtime data.
+* **Temporary Data:** It omits temporary files or caches that aren't part of the core system configuration.
+* **Sensitive Information:** Confidential data like passwords, encryption keys, or API tokens should be kept out of the image.
 
 ### Side-Effect of Image Creation:
 While creating an image in Azure, the original VM remains unaffected and operational. However, a temporary disk lock may be imposed during the process to maintain data consistency, potentially limiting certain administrative actions like resizing or deletion until image creation is finalized.
@@ -45,7 +47,7 @@ While creating an image in Azure, the original VM remains unaffected and operati
 <br>
 
 # How to Create an Image
-## Creating Pre-Provisioned Database Image
+## Creating a Database Image
 
 1. Ensure that the database VM is running and configured correctly.
 2. Once verified, navigate to the Azure portal.
@@ -56,7 +58,7 @@ While creating an image in Azure, the original VM remains unaffected and operati
 7. Follow the prompts to create the image, ensuring to select appropriate options for snapshotting.
 8. Once the image creation process is complete, the new pre-provisioned database image is ready for use.
 
-## Creating Pre-Provisioned App Image
+## Creating an App Image
 
 1. Ensure that the app VM is running and the app is configured correctly.
 2. Once verified, navigate to the Azure portal.

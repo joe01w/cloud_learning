@@ -27,14 +27,6 @@ echo enabling nginx...
 sudo systemctl enable nginx
 echo NGINX ENABLED!
 
-echo getting repo...
-git clone https://github.com/joe01w/sparta-test-app
-echo CLONED REPO!
-
-echo going to app folder...
-cd ~/sparta-test-app/app
-echo IN APP FOLDER!
-
 echo install node js v20...
 curl -fsSL https://deb.nodesource.com/setup_20.x | sudo DEBIAN_FRONTEND=noninteractive -E bash - &&\
 sudo DEBIAN_FRONTEND=noninteractive apt-get install -y nodejs
@@ -54,6 +46,14 @@ echo DB_HOST CREATED AND IP ADDRESS ACQUIRED!
 
 # =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
+echo getting repo...
+git clone https://github.com/joe01w/sparta-test-app.git
+echo CLONED REPO!
+
+echo going to app folder...
+cd ~/sparta-test-app/app
+echo IN APP FOLDER!
+
 echo installing app...
 sudo -E npm install
 echo APP INSTALLED!
@@ -67,7 +67,7 @@ sudo pm2 stop all
 echo PROCESSES STOPPED!
 
 echo running app...
-pm2 start app.js
+pm2 start node app.js
 echo FINISHED!
 
 # The app should be accessible now, using the Public IP of the newest EC2 Instance. 
