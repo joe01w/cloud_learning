@@ -42,39 +42,43 @@ This is because the image we use comes preinstalled and preconfigured with softw
 * **Sensitive Information:** Confidential data like passwords, encryption keys, or API tokens should be kept out of the image.
 
 ### Side-Effect of Image Creation:
-While creating an image in Azure, the original VM remains unaffected and operational. However, a temporary disk lock may be imposed during the process to maintain data consistency, potentially limiting certain administrative actions like resizing or deletion until image creation is finalized.
+While creating an image in Azure, the original VM remains unaffected and operational. However, the disk is reallocated, so while the image is being captured, the VM is paused (re-alloacted), so that system operations are not disturbed.
 
 <br>
 
 # How to Create an Image
-## Creating a Database Image
 
-1. Ensure that the database VM is running and configured correctly.
-2. Once verified, navigate to the Azure portal.
-3. In the Azure portal, locate the database VM instance.
-4. Select the database VM instance and access its management interface.
-5. Within the management interface, locate the option to create an image or snapshot of the VM.
-6. Name the new image similar to `tech258-joew-ubuntu2204-db-ready-to-run`.
-7. Follow the prompts to create the image, ensuring to select appropriate options for snapshotting.
-8. Once the image creation process is complete, the new pre-provisioned database image is ready for use.
+1. Navigate to the Azure portal.
+2. In the Azure portal, locate the VM instance.
+3. Select the app VM instance and access its management interface.
+4. Within the management interface, locate the option to create an image or snapshot of the VM.
 
-## Creating an App Image
+![alt text](images/capture_button_for_image_creation.png)
 
-1. Ensure that the app VM is running and the app is configured correctly.
-2. Once verified, navigate to the Azure portal.
-3. In the Azure portal, locate the app VM instance.
-4. Select the app VM instance and access its management interface.
-5. Within the management interface, locate the option to create an image or snapshot of the VM.
-6. Name the new image similar to `tech258-joew-ubuntu2204-app-ready-to-run`.
-7. Follow the prompts to create the image, ensuring to select appropriate options for snapshotting.
-8. Once the image creation process is complete, the new pre-provisioned app image is ready for use.
+5. Name the new image similar to `tech258-joew-ubuntu2204-app/DB-ready-to-run`.
+6. Follow the prompts to create the image, ensuring to select appropriate options for snapshotting.
+7. Once the image creation process is complete, the new pre-provisioned app image is ready for use.
 
 # How to create the App/Database VM Using a Pre-Provisioned Image
 
+![alt text](<images/creating a vm with an image.png>)
+
+![alt text](<images/creating a vm with an image 2.png>)
+
 1. In the VM creation wizard, select the option to use an existing image.
 2. Choose the pre-provisioned app image named `tech258-joew-ubuntu2204-ready-to-run`.
-3. Proceed with configuring the VM settings as needed.
+3. Proceed with configuring the VM settings as needed. Ensure the license type is set to other.
+
+![alt text](<images/license type.png>)
+
 4. When prompted for user data, paste in the user data script for starting the app/DB.
 5. For the app VM, ensure that the user data script includes setting the DB_HOST environment variable, navigating into the app folder, installing dependencies with npm install, and starting the app with pm2.
 6. Complete the VM creation process and wait for the new app VM to be provisioned.
 7.  Once provisioned, the app VM will be ready for use, with the app running as per the provided user data script.
+
+## Side Note - Changing permissions
+
+1. Use sudo -E 
+2. (Recursively) Change permissions using chmod (777)
+3. (Recursively) Take ownership of the folder. 
+4. Temporarily login as root
