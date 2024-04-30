@@ -10,18 +10,20 @@ Monitoring in Azure is called Azure monitor, and monitoring in AWS is called Clo
 
 ![alt text](images/worst_to_best_monitoring.png)
 
-We can enter the monitoring dashboard, and a large amount is customizable to our needs.
+We can enter the monitoring dashboard, and a large amount is customizable to our needs. We can add certain graphs to the dashboard, change the axis, etc.
 
 ![alt text](images/dashboard_editor.png)
 
-To run the pache load tester:
+### Load Testing
 
-On bash, Install apache, a loadtester:
+To run the apache load tester:
+
+On bash, install apache, a loadtester:
 ```
 sudo apt-get install apache2-utils
 ```
-The next commands send traffic to the app, and test to see how long it takes. You can also see the reuslts in the monitoring tab on Azure.
-Make sure to paste in the url of your app browser into the command below, then enter the command into bash
+The next commands send traffic to the app, and test to see how long it takes. You can also see the results in the monitoring tab on Azure.
+Make sure to paste in the url of your app browser into the command below, then enter the command into bash.
 ```
 ab -n 1000 -c 100 http://4.234.12.96/
 ```
@@ -34,15 +36,16 @@ ab -n 10000 -c 200 http://4.234.12.96/
 ```
 ab -n 40000 -c 300 http://4.234.12.96/
 ```
-Usually the threshold will be alot higher, but for test purposes, we will set it much lower to trigger an email notification.
 
 # Alerts
 
-We can add alerts to our VMs, so as soon as any threshold is met, an alert can be texted or emailed to you. The create alert screen looks like the image below:
+We can add alerts to our VMs, so as soon as any threshold is met, an alert can be texted or emailed to you. 
+The create alert screen looks like the image below:
 
 ![alt text](images/alert_conditions.png)
 
-and the alert email looks like this:
+Usually the threshold will be alot higher, but for test purposes, we will set it much lower to trigger an email notification.
+The alert email looks like this:
 
 ![alt text](images/email_alert.png)
 
