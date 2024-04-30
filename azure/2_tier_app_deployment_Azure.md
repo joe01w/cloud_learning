@@ -5,7 +5,7 @@ Two-tier architecture deployment divides an application into two layers: the fro
 ## Differences between Azure and AWS:
 
 * UI is very different, Azure seems more customisable, but confusing to beginners.
-* Azure has the IP address as a fixed resource, so the IP address remais the same even if the instance is stopped. On AWS, the IP address is refreshed every time.
+* Azure has the IP address as a fixed resource, so the IP address remains the same even if the instance is stopped. On AWS, the IP address is refreshed every time.
 * On Azure, one of the default rules of the security group is to allow any internal traffic within your virtual network. This means that certain ports don't need to be opened for databases or other applications.
 * On Azure, when using the bash terminal, the instance in use is stated by name on the command line, whereas on AWS, the instance is just listed as the IP address.
 * On AWS, you can customise the all security groups while creating the instance, but on Azure, you have to create and launch the instance, and then enter Network Security Groups settings, and adjust the rules there (apart from HTTP, HTTPS & SSH).
